@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Trivi-I-Know
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Trivi-I-Know is a trivia game created to help you improve your trivia knowledge. It was made with the following features in mind:
 
-## Available Scripts
+- Each round of questions will have 10 non-repeating questions
+- All questions will be multiple-choice and shown one at a time
+- Users can select and submit only one of the four answer choices for each question
+- Correct answers are revealed after the user submits the answer for each question
+- Total scores will be shown at the end of the round
 
-In the project directory, you can run:
+* Trivia questions and answers are provided by [Tandem](https://madeintandem.com/)
 
-### `npm start`
+This project is deployed via Github pages and can be found [here](https://vlee4.github.io/Trivi-I-Know/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Running project locally in development mode
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+After cloning/downloading this project, after you run `npm install` in the console you can start the app with `npm start`. The project will run at [http://localhost:3000](http://localhost:3000) in the browser.
 
-### `npm test`
+## Issues
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+During start up you may encounter an error concerning the version of jest. This problem can either be dealt with by following the directions in the console, or you may create an `.env` file in the home directory. Within the `.env` file you should input the following:
 
-### `npm run build`
+`SKIP_PREFLIGHT_CHECK=true`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After saving the `.env` file you may try once again to run `npm start`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Potential future features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- To be updated
