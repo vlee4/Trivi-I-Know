@@ -4,9 +4,11 @@ import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import questions from "./questionsReducer"
+import gameStats from "./gameStatsReducer"
 
 const reducer = combineReducers({
-  questions
+  questions,
+  gameStats,
 });
 
 const middleware = composeWithDevTools(
