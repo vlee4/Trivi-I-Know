@@ -71,3 +71,14 @@
 .playerInput .answer {
   padding: 0.5em;
 }
+
+/* Results */
+
+.resultBtns {
+  margin: 1em;
+}
+
+.resultBtns button {
+  margin: 1em;
+  padding: 0.5em;
+}
