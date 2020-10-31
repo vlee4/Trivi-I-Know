@@ -50,3 +50,24 @@
 .playerInput > input {
   margin: 0.5em 0em 0.5em 0em;
 }
+
+/* Question */
+
+.question {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(216, 112, 147, 0.144);
+}
+
+.topBanner {
+  display: flex;
+  justify-content: space-between;
+  padding: 0em 2em 0em 2em;
+  background-color: black;
+  padding: 1em;
+  color: white;
+}
+
+.playerInput .answer {
+  padding: 0.5em;
+}
