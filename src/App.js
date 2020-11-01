@@ -7,21 +7,22 @@ import {connect} from "react-redux";
 
 class App extends React.Component {
   render(){
-    let {gamePhase} = this.props ? this.props.gameStats: null;
+    let {phase} = this.props ? this.props.gameStats: null;
 
-    if(!gamePhase){
+    if(!this.props.gameStats.phase){
+      console.log("props", this.props.gameStats)
       return(
         <div className="App">
-        <h2>Loading...</h2>
+        <h2 className="loading">Loading...</h2>
       </div>
     )
   }
-  else{
-    console.log("Current game phase: ", gamePhase);
+  else {
+    console.log("Current game phase: ", phase);
     return (
       <div className="App">
       <h1 id="gameName">Trivi-I-Know</h1>
-      {gamePhase==="start"? (<Start/>):(gamePhase==="questions"?(<Question/>):(<Results/>))}
+      {phase==="start"? (<Start/>):(phase==="questions"?(<Question/>):(<Results/>))}
       </div>
       );
     }

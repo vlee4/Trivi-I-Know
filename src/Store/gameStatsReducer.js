@@ -43,13 +43,13 @@ State = {
 */
 
 
-export default function gameStatsReducer(state = {score:0, playerName:"", gamePhase: "start"}, action){
+export default function gameStatsReducer(state = {score:0, playerName:"", phase: "start"}, action){
   switch(action.type){
     case ACTIVATE_GAME:
       let newName = action.name ? action.name : state.name;
       return {score:0, phase: "questions", name: newName}
     case CHANGE_PHASE:
-      return {...state, gamePhase: action.phase};
+      return {...state, phase: action.phase};
     default:
       return state;
   }
