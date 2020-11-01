@@ -11,7 +11,7 @@ const getQuestions = (questions) => {
   }
 }
 
-export const pickQuestion = () => {
+export const pickQuestions = () => {
   return (dispatch) => {
     let chosen = [];
     let counter = 0;
@@ -27,11 +27,12 @@ export const pickQuestion = () => {
 
 /*State = {
   QNum: 0,
+  CurQ: {},
   Questions: [],
 }
 */
 //Reducer
-export default function questionsReducer(state={QNum: 0, Questions: []}, action){
+export default function questionsReducer(state={QNum: 0, CurQ: {}, Questions: []}, action){
   switch(action.type){
     case GET_QUESTIONS:
       return {...state, Questions: action.questions}
