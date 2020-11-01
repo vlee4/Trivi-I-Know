@@ -7,7 +7,7 @@ class Question extends React.Component{
     super()
       this.state={
         choice: "",
-        disabled: true,
+        submitted: false,
       }
 
     this.submitAnswer = this.submitAnswer.bind(this);
@@ -23,15 +23,12 @@ class Question extends React.Component{
   }
 
   onChange(e){
-    if(this.state.disabled){
-      this.setState({disabled: false})
-    }
     this.setState({choice: e.target.value})
   }
 
   submitAnswer(e){
     e.preventDefault();
-    this.setState({disabled: true})
+    this.setState({submitted: true})
     console.log("Submission value", this.state.choice);
   }
 
@@ -70,7 +67,7 @@ class Question extends React.Component{
           }))
           :(<div className="answer">Loading</div>)}
           </div>
-          <button type="submit" disabled={this.state.disabled}>Submit</button>
+          <button type="submit" disabled={!this.state.choice.length||(this.state.submitted)}>Submit</button>
       </form>
     </div>
   )
