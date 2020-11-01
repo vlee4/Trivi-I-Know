@@ -1,33 +1,37 @@
 import './App.css';
-// import Start from "./Components/Start";
-import Question from "./Components/Question"
-// import Results from "./Components/Results";
-import QandA from "./Apprentice_TandemFor400_Data.json";
+import React from "react";
+import Start from "./Components/Start";
+import Question from "./Components/Question";
+import Results from "./Components/Results";
+import {connect} from "react-redux";
 
-function App() {
- //Chose questions for the round
-  function choose(QandA){
-    let chosen = [];
-    let counter = 0;
-    while(counter<10){
-      let index = Math.floor(Math.random()*(QandA.length))
-      chosen.push(QandA[index]);
-      counter++;
-    }
-    console.log(chosen);
-    return chosen;
+class App extends React.Component {
+  render(){
+    let {phase} = this.props ? this.props.gameStats: null;
+
+    if(!this.props.gameStats.phase){
+      return(
+        <div className="App">
+        <h2 className="loading">Loading...</h2>
+      </div>
+    )
   }
-  choose(QandA)
-
-
-  return (
-    <div className="App">
+  else {
+    return (
+      <div className="App">
       <h1 id="gameName">Trivi-I-Know</h1>
-      {/* <Start/> */}
-      <Question/>
-      {/* <Results/> */}
-    </div>
-  );
+      {phase==="start"? (<Start/>):(phase==="questions"?(<Question/>):(<Results/>))}
+      </div>
+      );
+    }
+  }
 }
 
-export default App;
+const mapStatetoProps = (state) => {
+  return{
+    questions: state.questions,
+    gameStats: state.gameStats,
+  }
+}
+
+export default connect(mapStatetoProps)(App);

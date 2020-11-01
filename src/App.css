@@ -20,6 +20,11 @@
   );
 }
 
+.loading {
+  padding: 1em;
+  margin: 0em;
+}
+
 #gameName {
   margin: 0;
   padding: 1em 0em 1em 0em;
