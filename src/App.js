@@ -18,7 +18,7 @@ class App extends React.Component {
     )
   }
   else {
-    console.log("Current game phase: ", phase);
+    console.log("Current game phase: ", this.props);
     return (
       <div className="App">
       <h1 id="gameName">Trivi-I-Know</h1>

@@ -35,7 +35,8 @@ export const pickQuestions = () => {
 export default function questionsReducer(state={QNum: 0, CurQ: {}, Questions: []}, action){
   switch(action.type){
     case GET_QUESTIONS:
-      return {...state, Questions: action.questions}
+      let first = action.questions[0];
+      return {...state, CurQ: first, Questions: action.questions}
     default:
       return state;
   }
