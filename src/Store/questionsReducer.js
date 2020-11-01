@@ -2,6 +2,7 @@ import QandA from "../Apprentice_TandemFor400_Data.json"
 //Initial State
 const initialState = {
   QNum: 0,
+  QIdx: 0,
   CurQ: {},
   Questions: [],
 }
@@ -41,24 +42,30 @@ export const pickQuestions = () => {
   }
 }
 //Input will be INDEX in QandA to look for
-export const formatQuestion = (qNum) => {
+export const formatQuestion = (qNum=0) => {
+  console.log("HERE!")
   return (dispatch) => {
-    let {question, correct, incorrect} = QandA[qNum];
-    let inserts = new Set();
-    let answers = [correct, ...incorrect];
+    try{
+      let {question, correct, incorrect} = QandA[qNum];
+      let inserts = new Set();
+      let answers = [correct, ...incorrect];
 
-    //Randomize order of possible answers
-    while(inserts.size<4){ //creates order of indexes
-      let idx = Math.floor(Math.random()*(3))
-      inserts.add(idx);
+      //Randomize order of possible answers
+      while(inserts.size<4){ //creates order of indexes
+        console.log("insert SIZE",inserts.size)
+        let idx = Math.floor(Math.random()*(4))
+        inserts.add(idx);
+      }
+      let ansArr = [];
+      inserts.forEach(idx=> {
+        ansArr.push(answers[idx])
+      })
+
+     console.log("ANSWERS", ansArr)
+      dispatch(generateQuestion({question, answers: answers}))
+    } catch(error){
+        console.log("Error formatting questions", error);
     }
-    let ansArr = [];
-    inserts.forEach(idx=> {
-      ansArr.push(answers[idx])
-    })
-
-   console.log("ANSWERS", ansArr)
-    dispatch(generateQuestion({question, answers: ansArr}))
   }
 }
 /*{
@@ -72,7 +79,7 @@ export const formatQuestion = (qNum) => {
 export default function questionsReducer(state=initialState, action){
   switch(action.type){
     case GET_QUESTIONS:
-      return {...state, Questions: action.questions}
+      return {...state, Questions: action.questions, QIdx: action.questions[0]}
     case GENERATE_QUESTION:
       return {...state, CurQ: action.question}
     default:
