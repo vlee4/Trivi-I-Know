@@ -16,7 +16,7 @@ class Start extends React.Component{
 
   toggleButton(){
     let input = this.inputVal.current.value;
-    let btnState = input.length? false: true;
+    let btnState = input.trim().length? false: true;
     this.setState({nameInput: this.inputVal, disabled: btnState})
     console.log("input", input, "button state", btnState);
   }
