@@ -11,7 +11,7 @@
   width: 100%;
   height: 100%;
   margin: 0px;
-  background: rgb(242, 174, 167);
+  /* background: rgb(242, 174, 167); */
   background: linear-gradient(
     346deg,
     rgba(242, 174, 167, 1) 8%,
@@ -100,7 +100,7 @@
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  width: 25%;
+  width: 35%;
 }
 
 table {
@@ -108,16 +108,20 @@ table {
   object-fit: fill;
 }
 
-.row {
-  /* display: flex;
-  justify-content: center; */
+/* .row {
   border: black solid;
+} */
+
+.incorrect_row {
+  background-color: rgba(255, 0, 0, 0.507);
+}
+
+.correct_row {
+  background-color: rgba(111, 233, 111, 0.863);
 }
 
 .row_left,
 .row_right {
-  /* padding: 0.5em; */
-  width: auto;
-  object-fit: stretch;
+  padding: 0.5em;
   border: black solid;
 }

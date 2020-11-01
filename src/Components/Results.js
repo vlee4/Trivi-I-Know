@@ -21,8 +21,9 @@ function Results(props) {
           )
         })):""}
       </div> */}
-      <h4>Your Answers</h4>
-      <table className="answerSheet">
+      <div className="answerSheet">
+      <h3>Your Answers</h3>
+      <table>
         <thead>
         <tr className="row">
                <th className="row_left" colSpan="1">My Answers</th>
@@ -31,8 +32,9 @@ function Results(props) {
         </thead>
         <tbody>
         {props.gameStats.answerSheet? (Object.values(props.gameStats.answerSheet).map((item, idx)=> {
+          let style = (item.myAnswer===item.correct)? "correct_row":"incorrect_row";
           return (
-              <tr key={`Ans_Entry_${idx}`} className="row">
+              <tr key={`Ans_Entry_${idx}`} className={`row ${style}`} >
                 <td className="row_left">{item.myAnswer}</td>
                 <td className="row_right">{item.correct}</td>
               </tr>
@@ -40,7 +42,7 @@ function Results(props) {
         })):""}
         </tbody>
       </table>
-
+    </div>
       <div className="resultBtns">
         <button>Return to Start</button>
         <button>Restart game</button>
