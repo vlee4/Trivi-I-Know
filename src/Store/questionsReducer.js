@@ -10,6 +10,7 @@ const initialState = {
 //Action
 const GET_QUESTIONS = "GET_QUESTIONS";
 const GENERATE_QUESTION = "GENERATE_QUESTION";
+const NEXT_QUESTION = "NEXT_QUESTION";
 
 
 //ACTION CREATOR
@@ -24,6 +25,13 @@ const generateQuestion = (question) => {
   return {
     type: GENERATE_QUESTION,
     question
+  }
+}
+
+const getNext = (qNum) => {
+  return {
+    type: NEXT_QUESTION,
+    qNum
   }
 }
 
@@ -43,15 +51,15 @@ export const pickQuestions = () => {
   }
 }
 //Input will be INDEX in QandA to look for
-export const formatQuestion = (qNum=0) => {
+export const formatQuestion = (qIdx) => {
   return (dispatch) => {
     try{
-      let {question, correct, incorrect} = QandA[qNum];
+      let {question, correct, incorrect} = QandA[qIdx];
       let inserts = new Set();
       let answers = [correct, ...incorrect];
 
       //Randomize order of possible answers
-      while(inserts.size<4){ //creates order of indexes
+      while(inserts.size<answers.length){ //creates order of indexes
         let idx = Math.floor(Math.random()*(4))
         inserts.add(idx);
       }
@@ -63,6 +71,12 @@ export const formatQuestion = (qNum=0) => {
     } catch(error){
         console.log("Error formatting questions", error);
     }
+  }
+}
+
+export const nextQuestion = (qNum) => {
+  return (dispatch) => {
+    dispatch(getNext(qNum))
   }
 }
 
@@ -80,6 +94,9 @@ export default function questionsReducer(state=initialState, action){
       return {...state, Questions: action.questions, QIdx: action.questions[0]}
     case GENERATE_QUESTION:
       return {...state, CurQ: action.question}
+    case NEXT_QUESTION:
+      let nextIndex = state.Questions[action.qNum+1];
+      return {...state, QNum: action.qNum+1, QIdx:nextIndex}
     default:
       return state;
   }

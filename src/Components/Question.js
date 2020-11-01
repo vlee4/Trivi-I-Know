@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {formatQuestion} from "../Store/questionsReducer";
+import {formatQuestion, nextQuestion} from "../Store/questionsReducer";
 import {checkAnswer} from "../Store/gameStatsReducer";
 
 class Question extends React.Component{
@@ -11,8 +11,9 @@ class Question extends React.Component{
         submitted: false,
       }
 
-    this.submitAnswer = this.submitAnswer.bind(this);
-    this.onChange = this.onChange.bind(this);
+      this.onChange = this.onChange.bind(this);
+      this.submitAnswer = this.submitAnswer.bind(this);
+      this.nextQ = this.nextQ.bind(this);
   }
 
  async componentDidMount(){
@@ -34,6 +35,16 @@ class Question extends React.Component{
     console.log("Submission value", this.state.choice);
   }
 
+  async nextQ(){
+    try{
+      await this.props.nextQuest(this.props.QNum);
+      await this.props.getQ(this.props.QIdx);
+      this.setState({choice: "", submitted: false})
+    } catch(error){
+      console.log("Error getting to next question", error)
+    }
+  }
+
   render(){
     console.log("PROPS",this.props)
     if(!this.props.curQuestion){
@@ -52,7 +63,7 @@ class Question extends React.Component{
         <div>{this.props.gameStats.name||""}</div>
         <div className="navQuestions">
           <button>Previous</button>
-          <button>Next</button>
+          <button onClick={this.nextQ} disabled={!this.state.submitted}>Next</button>
         </div>
       </div>
 
@@ -75,7 +86,7 @@ class Question extends React.Component{
       <div className="answerCompare">
         {(correct?(
           <div>
-          {correct===myAnswer? `Congrats, ${correct} is correct!`: `Sorry, ${myAnswer} is wrong! The correct answer is ${correct}`}
+          {correct===myAnswer? `Congrats, ${correct} is correct!`: `Sorry, ${myAnswer} is wrong! The correct answer is ${correct}.`}
           </div>):
           "")}
       </div>
@@ -98,7 +109,8 @@ const mapStateToState = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getQ: (num) => dispatch(formatQuestion(num)),
-    check: (QNum, QIdx, answer) => dispatch(checkAnswer(QNum, QIdx, answer))
+    check: (QNum, QIdx, answer) => dispatch(checkAnswer(QNum, QIdx, answer)),
+    nextQuest: (qNum) => dispatch(nextQuestion(qNum))
   }
 }
 
