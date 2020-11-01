@@ -5,15 +5,20 @@ import {formatQuestion} from "../Store/questionsReducer";
 class Question extends React.Component{
  async componentDidMount(){
    try{
-    //  console.log("PROPS", this.props)
-     // let qNum = (this.props&&this.props.)
      await this.props.getQ(this.props.QIdx)
-     console.log("PROPS", this.props)
    } catch(error){
      console.log("Error getting question", error)
    }
   }
   render(){
+    console.log("PROPS",this.props)
+    if(!this.props.curQuestion){
+      return(
+        <div className="question">
+        <h2 className="loading">Loading...</h2>
+      </div>
+      )
+    }
     let {question, answers} = this.props.curQuestion;
   return(
     <div className="question">
@@ -29,14 +34,16 @@ class Question extends React.Component{
       <form className="playerInput">
         <h3 className="questionHeader">{question||"Question"}</h3>
         <div className="mappedAnswers">
-          {answers.map((ans, idx)=> {
+          {this.props.curQuestion.answers?(
+            answers.map((ans, idx)=> {
             return(
                 <div className="answer" key={`ans_${idx}`}>
                   <input name="answer" type="radio" placeholder="Create map function to display question's 4 answers"/>
                   <label htmlFor="A1">{ans}</label>
                 </div>
             )
-          })}
+          }))
+          :(<div className="answer">Loading</div>)}
           </div>
           <button type="submit">Submit</button>
       </form>

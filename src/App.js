@@ -10,7 +10,6 @@ class App extends React.Component {
     let {phase} = this.props ? this.props.gameStats: null;
 
     if(!this.props.gameStats.phase){
-      console.log("props", this.props.gameStats)
       return(
         <div className="App">
         <h2 className="loading">Loading...</h2>
@@ -18,7 +17,6 @@ class App extends React.Component {
     )
   }
   else {
-    console.log("Current game phase: ", this.props);
     return (
       <div className="App">
       <h1 id="gameName">Trivi-I-Know</h1>

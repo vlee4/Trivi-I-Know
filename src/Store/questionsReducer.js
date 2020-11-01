@@ -37,13 +37,11 @@ export const pickQuestions = () => {
         counter++;
       }
     }
-    console.log("CHOSEN",[...chosen]);
     dispatch(getQuestions([...chosen]));
   }
 }
 //Input will be INDEX in QandA to look for
 export const formatQuestion = (qNum=0) => {
-  console.log("HERE!")
   return (dispatch) => {
     try{
       let {question, correct, incorrect} = QandA[qNum];
@@ -52,7 +50,6 @@ export const formatQuestion = (qNum=0) => {
 
       //Randomize order of possible answers
       while(inserts.size<4){ //creates order of indexes
-        console.log("insert SIZE",inserts.size)
         let idx = Math.floor(Math.random()*(4))
         inserts.add(idx);
       }
@@ -60,9 +57,7 @@ export const formatQuestion = (qNum=0) => {
       inserts.forEach(idx=> {
         ansArr.push(answers[idx])
       })
-
-     console.log("ANSWERS", ansArr)
-      dispatch(generateQuestion({question, answers: answers}))
+      dispatch(generateQuestion({question, answers: ansArr}))
     } catch(error){
         console.log("Error formatting questions", error);
     }

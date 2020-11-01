@@ -22,7 +22,6 @@ class Start extends React.Component{
   }
   startGame(){
     try{
-      console.log(`Starting Game for ${this.inputVal.current.value}!`);
       this.props.fetchQuestions();
       this.props.beginGame(this.inputVal.current.value);
 
