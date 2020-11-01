@@ -76,7 +76,7 @@ export default function gameStatsReducer(state = {score:0, playerName:"", phase:
     case CHANGE_PHASE:
       return {...state, phase: action.phase};
     case CHECK_ANSWER:
-      let newSubmission = {correct: action.correct, myAnwer: action.answer}
+      let newSubmission = {correct: action.correct, myAnswer: action.answer}
       let update = {...state.answerSheet, [action.QNum+1]: newSubmission}
       return {...state, answerSheet: update, score: state.score+action.score}
     default:

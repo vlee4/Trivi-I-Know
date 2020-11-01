@@ -44,6 +44,7 @@ class Question extends React.Component{
       )
     }
     let {question, answers} = this.props.curQuestion;
+    let {correct, myAnswer} = (this.props.gameStats.answerSheet[this.props.QNum+1])? this.props.gameStats.answerSheet[this.props.QNum+1]: {};
   return(
     <div className="question">
       <div className="topBanner">
@@ -71,6 +72,14 @@ class Question extends React.Component{
           </div>
           <button type="submit" disabled={!this.state.choice.length||(this.state.submitted)}>Submit</button>
       </form>
+      <div className="answerCompare">
+        {(correct?(
+          <div>
+          {correct===myAnswer? `Congrats, ${correct} is correct!`: `Sorry, ${myAnswer} is wrong! The correct answer is ${correct}`}
+          </div>):
+          "")}
+      </div>
+
     </div>
   )
   }
