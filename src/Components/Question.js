@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {formatQuestion, nextQuestion} from "../Store/questionsReducer";
-import {checkAnswer} from "../Store/gameStatsReducer";
+import {checkAnswer, nextPhase} from "../Store/gameStatsReducer";
 
 class Question extends React.Component{
   constructor(){
@@ -36,12 +36,16 @@ class Question extends React.Component{
   }
 
   async nextQ(){
-    try{
-      await this.props.nextQuest(this.props.QNum);
-      await this.props.getQ(this.props.QIdx);
-      this.setState({choice: "", submitted: false})
-    } catch(error){
-      console.log("Error getting to next question", error)
+    if(this.props.QNum+1===10){
+      this.props.endRound("results");
+    }else{
+      try{
+        await this.props.nextQuest(this.props.QNum);
+        await this.props.getQ(this.props.QIdx);
+        this.setState({choice: "", submitted: false})
+      } catch(error){
+        console.log("Error getting to next question", error)
+      }
     }
   }
 
@@ -110,7 +114,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getQ: (num) => dispatch(formatQuestion(num)),
     check: (QNum, QIdx, answer) => dispatch(checkAnswer(QNum, QIdx, answer)),
-    nextQuest: (qNum) => dispatch(nextQuestion(qNum))
+    nextQuest: (qNum) => dispatch(nextQuestion(qNum)),
+    endRound: (phase) => dispatch(nextPhase(phase))
   }
 }
 
