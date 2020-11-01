@@ -3,6 +3,16 @@ import {connect} from "react-redux";
 import {formatQuestion} from "../Store/questionsReducer";
 
 class Question extends React.Component{
+  constructor(){
+    super()
+      this.state={
+        choice: "",
+      }
+
+    this.submitAnswer = this.submitAnswer.bind(this);
+    this.onChange = this.onChange.bind(this);
+  }
+
  async componentDidMount(){
    try{
      await this.props.getQ(this.props.QIdx)
@@ -10,6 +20,16 @@ class Question extends React.Component{
      console.log("Error getting question", error)
    }
   }
+
+  onChange(e){
+    this.setState({choice: e.target.value})
+  }
+
+  submitAnswer(e){
+    e.preventDefault();
+    console.log("Submission value", this.state.choice);
+  }
+
   render(){
     console.log("PROPS",this.props)
     if(!this.props.curQuestion){
@@ -31,15 +51,15 @@ class Question extends React.Component{
         </div>
       </div>
 
-      <form className="playerInput">
+      <form className="playerInput" onSubmit={this.submitAnswer}>
         <h3 className="questionHeader">{question||"Question"}</h3>
         <div className="mappedAnswers">
           {this.props.curQuestion.answers?(
             answers.map((ans, idx)=> {
             return(
                 <div className="answer" key={`ans_${idx}`}>
-                  <input name="answer" type="radio" placeholder="Create map function to display question's 4 answers"/>
-                  <label htmlFor="A1">{ans}</label>
+                  <input name="answer" type="radio" id={ans} value={ans} onChange={this.onChange} checked={this.state.choice===ans}/>
+                  <label htmlFor={ans}>{ans}</label>
                 </div>
             )
           }))
