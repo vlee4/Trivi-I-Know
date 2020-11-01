@@ -1,4 +1,6 @@
 import './App.css';
+import Github_Logo from"./GitHub_Logo_White.png";
+import GH_Logo from "./GitHub-Mark-32px.png";
 import React from "react";
 import Start from "./Components/Start";
 import Question from "./Components/Question";
@@ -25,8 +27,8 @@ class App extends React.Component {
       <footer>
         <div>
           <div>Last Updated: November 2020</div>
-          <div><img src={"./GitHub-Mark-32px.png"} alt="GH_Logo"></img><a href="https://github.com/vlee4/Trivi-I-Know"><img src={'./public/GitHub_Logo_White.png'} alt=
-          "Github"></img></a></div>
+          <div><a href="https://github.com/vlee4/Trivi-I-Know"><img src={GH_Logo} alt="GH_Logo"></img><img src={Github_Logo} alt=
+          "Github"style={{width: "5%", height: "auto"}}></img></a></div>
 
           <div>Created by vLEE</div>
         </div>
