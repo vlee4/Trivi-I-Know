@@ -79,6 +79,13 @@
 
 /* Results */
 
+.results {
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .resultBtns {
   margin: 1em;
 }
@@ -86,4 +93,31 @@
 .resultBtns button {
   margin: 1em;
   padding: 0.5em;
+}
+
+.answerSheet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  width: 25%;
+}
+
+table {
+  border: black solid;
+  object-fit: fill;
+}
+
+.row {
+  /* display: flex;
+  justify-content: center; */
+  border: black solid;
+}
+
+.row_left,
+.row_right {
+  /* padding: 0.5em; */
+  width: auto;
+  object-fit: stretch;
+  border: black solid;
 }
