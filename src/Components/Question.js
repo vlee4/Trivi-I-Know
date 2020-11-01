@@ -64,7 +64,7 @@ class Question extends React.Component{
     <div className="question">
       <div className="topBanner">
         <div>Question {this.props.QNum+1}/10</div>
-        <div>{this.props.gameStats.name||""}</div>
+        <div>{this.props.gameStats.playerName||""}</div>
         <div className="navQuestions">
           <button>Previous</button>
           <button onClick={this.nextQ} disabled={!this.state.submitted}>Next</button>

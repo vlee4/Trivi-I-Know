@@ -75,7 +75,7 @@ export const resetStats = (name, phase) => {
 State = {
   score: 0,
   playerName: "",
-  gamePhase: start|questions|results,
+  phase: start|questions|results,
   answerSheet: {
     QNum: {answer:, correct: }
   }
@@ -95,7 +95,7 @@ export default function gameStatsReducer(state = {score:0, playerName:"", phase:
       let update = {...state.answerSheet, [action.QNum+1]: newSubmission}
       return {...state, answerSheet: update, score: state.score+action.score}
     case RESET_GAMESTATS:
-      return {score: 0, playerName: action.name, gamePhase: action.phase, answerSheet: {} }
+      return {score: 0, playerName: action.name, phase: action.phase, answerSheet: {} }
     default:
       return state;
   }

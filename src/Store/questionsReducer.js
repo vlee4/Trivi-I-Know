@@ -67,7 +67,7 @@ export const formatQuestion = (qIdx) => {
 
       //Randomize order of possible answers
       while(inserts.size<answers.length){ //creates order of indexes
-        let idx = Math.floor(Math.random()*(4))
+        let idx = Math.floor(Math.random()*(answers.length))
         inserts.add(idx);
       }
       let ansArr = [];
