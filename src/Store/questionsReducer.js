@@ -11,6 +11,7 @@ const initialState = {
 const GET_QUESTIONS = "GET_QUESTIONS";
 const GENERATE_QUESTION = "GENERATE_QUESTION";
 const NEXT_QUESTION = "NEXT_QUESTION";
+const RESET_QUESTIONS = "RESET_QUESTIONS";
 
 
 //ACTION CREATOR
@@ -32,6 +33,12 @@ const getNext = (qNum) => {
   return {
     type: NEXT_QUESTION,
     qNum
+  }
+}
+
+const reset = () => {
+  return {
+    type: RESET_QUESTIONS,
   }
 }
 
@@ -80,6 +87,12 @@ export const nextQuestion = (qNum) => {
   }
 }
 
+export const resetQuestions = () => {
+  return (dispatch) => {
+    dispatch(reset())
+  }
+}
+
 /*{
   queston: q,
   answers: [in randomized order]
@@ -97,6 +110,8 @@ export default function questionsReducer(state=initialState, action){
     case NEXT_QUESTION:
       let nextIndex = state.Questions[action.qNum+1];
       return {...state, QNum: action.qNum+1, QIdx:nextIndex}
+    case RESET_QUESTIONS:
+      return {QNum: 0, QIdx: 0, CurQ: {}, Questions: []}
     default:
       return state;
   }

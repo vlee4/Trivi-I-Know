@@ -4,6 +4,7 @@ import QandA from "../Apprentice_TandemFor400_Data.json"
 const ACTIVATE_GAME = "ACTIVATE_GAME";
 const CHANGE_PHASE = "CHANGE_PHASE";
 const CHECK_ANSWER = "CHECK_ANSWER";
+const RESET_GAMESTATS = "RESET_GAMESTATS";
 
 //Action Creator
 const startGame = (name) => {
@@ -27,6 +28,14 @@ const checkSubmission = (QNum, correct, answer, score) => {
     correct,
     answer,
     score,
+  }
+}
+
+const resetGame = (name="", phase="start") => {
+  return {
+    type: RESET_GAMESTATS,
+    name,
+    phase
   }
 }
 
@@ -56,6 +65,12 @@ export const checkAnswer = (QNum, QIdx, answer) => {
   }
 }
 
+export const resetStats = (name, phase) => {
+  return (dispatch) => {
+    dispatch(resetGame(name, phase))
+  }
+}
+
 /*
 State = {
   score: 0,
@@ -79,6 +94,8 @@ export default function gameStatsReducer(state = {score:0, playerName:"", phase:
       let newSubmission = {correct: action.correct, myAnswer: action.answer}
       let update = {...state.answerSheet, [action.QNum+1]: newSubmission}
       return {...state, answerSheet: update, score: state.score+action.score}
+    case RESET_GAMESTATS:
+      return {score: 0, playerName: action.name, gamePhase: action.phase, answerSheet: {} }
     default:
       return state;
   }
