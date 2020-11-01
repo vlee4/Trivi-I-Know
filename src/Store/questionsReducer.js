@@ -11,6 +11,7 @@ const initialState = {
 const GET_QUESTIONS = "GET_QUESTIONS";
 const GENERATE_QUESTION = "GENERATE_QUESTION";
 
+
 //ACTION CREATOR
 const getQuestions = (questions) => {
   return {
@@ -25,6 +26,7 @@ const generateQuestion = (question) => {
     question
   }
 }
+
 
 export const pickQuestions = () => {
   return (dispatch) => {
@@ -63,6 +65,7 @@ export const formatQuestion = (qNum=0) => {
     }
   }
 }
+
 /*{
   queston: q,
   answers: [in randomized order]

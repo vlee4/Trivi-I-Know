@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {formatQuestion} from "../Store/questionsReducer";
+import {checkAnswer} from "../Store/gameStatsReducer";
 
 class Question extends React.Component{
   constructor(){
@@ -28,6 +29,7 @@ class Question extends React.Component{
 
   submitAnswer(e){
     e.preventDefault();
+    this.props.check(this.props.QNum, this.props.QIdx,this.state.choice)
     this.setState({submitted: true})
     console.log("Submission value", this.state.choice);
   }
@@ -86,7 +88,8 @@ const mapStateToState = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getQ: (num) => dispatch(formatQuestion(num))
+    getQ: (num) => dispatch(formatQuestion(num)),
+    check: (QNum, QIdx, answer) => dispatch(checkAnswer(QNum, QIdx, answer))
   }
 }
 
