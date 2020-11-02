@@ -39,13 +39,15 @@ class App extends React.Component {
         </h1>
       {phase==="start"? (<Start/>):(phase==="questions"?(<Question/>):(<Results/>))}
       <footer>
-        <div>
+        <div className="footer_content">
           <div>Last Updated: November 2020</div>
           <div>Created by vLEE</div>
-
-          <div><a href="https://github.com/vlee4/Trivi-I-Know"><img src={GH_Logo} alt="GH_Logo"></img><img src={Github_Logo} alt=
-          "Github"style={{width: "5%", height: "auto"}}></img></a></div>
-
+          <div>
+            <a href="https://github.com/vlee4/Trivi-I-Know">
+              <img src={GH_Logo} alt="GH_Logo"></img>
+              <img src={Github_Logo} alt="Github"style={{width: "5%", height: "auto"}}></img>
+            </a>
+          </div>
         </div>
         </footer>
       </div>
