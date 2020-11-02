@@ -26,4 +26,8 @@ After saving the `.env` file you may try once again to run `npm start`.
 
 ## Potential future features
 
-- To be updated
+- Responsive design for different device browswer sizes
+- Previous button: to allow user to move back and forth through the questions
+- Landing page
+- Score board: displaying previous players' scores
+  - Connect a database to include live updated player scores
