@@ -101,20 +101,55 @@ footer {
 .question {
   display: flex;
   flex-direction: column;
-  background-color: rgba(216, 112, 147, 0.144);
+  /* background-color: rgba(216, 112, 147, 0.144); */
+
+  padding: 0em 0em 5em 0em;
+  margin: 0em 3em 0em 3em;
+  border-radius: 10px;
+  box-shadow: inset 0.5em 0.5em 1em lightgrey,
+    12px 12px 2px 1px rgb(34 34 142 / 20%), inset -0.5em -0.5em 1em lightgrey;
+  border: salmon double 0.5em;
+  background-color: rgb(0 0 0 / 74%);
+  color: white;
 }
 
 .topBanner {
   display: flex;
   justify-content: space-between;
-  padding: 0em 2em 0em 2em;
-  background-color: black;
-  padding: 1em;
+  padding: 2em;
+  /* background-color: #10101070; */
   color: white;
+}
+
+.topBanner > div {
+  width: 33%;
+}
+
+.topBanner > div > button {
+  padding: 0.5em;
+  width: 25%;
+}
+.playerName {
+  justify-self: center;
 }
 
 .playerInput .answer {
   padding: 0.5em;
+}
+
+.answer > label {
+  padding-left: 0.5em;
+}
+
+.playerInput > button {
+  margin: 1em;
+  padding: 0.5em;
+  width: 25%;
+}
+
+.mappedAnswers {
+  text-align: left;
+  /* padding-left: 10%; */
 }
 
 /* Results */
