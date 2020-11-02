@@ -22,21 +22,24 @@ class App extends React.Component {
   else {
     return (
       <div className="App">
-      <h1 id="gameName" className="glow">
-        <span style={{color: "#c53b50"}}>T</span>
-        <span style={{color: "#19a0b4"}}>r</span>
-        <span style={{ color: "#d86b90"}}>i</span>
-        <span style={{color:" #8aac85"}}>v</span>
-        <span style={{ color: "#69476d"}}>i</span>
-        <span>-</span>
-        <span style={{color: "#e56105"}}>I</span>
-        <span>-</span>
-        <span style={{color: "#409b8a"}}>K</span>
-        <span style={{color: "#f2c73a"}}>n</span>
-        <span style={{color: "#dc3349"}}>o</span>
-        <span style={{ color: "#ea6794"}}>w</span>
+      <div className="content">
+        <h1 id="gameName" className="glow">
+          <span style={{color: "#c53b50"}}>T</span>
+          <span style={{color: "#19a0b4"}}>r</span>
+          <span style={{ color: "#d86b90"}}>i</span>
+          <span style={{color:" #8aac85"}}>v</span>
+          <span style={{ color: "#69476d"}}>i</span>
+          <span>-</span>
+          <span style={{color: "#e56105"}}>I</span>
+          <span>-</span>
+          <span style={{color: "#409b8a"}}>K</span>
+          <span style={{color: "#f2c73a"}}>n</span>
+          <span style={{color: "#dc3349"}}>o</span>
+          <span style={{ color: "#ea6794"}}>w</span>
         </h1>
-      {phase==="start"? (<Start/>):(phase==="questions"?(<Question/>):(<Results/>))}
+
+        {phase==="start"? (<Start/>):(phase==="questions"?(<Question/>):(<Results/>))}
+      </div>
       <footer>
         <div className="footer_content">
           <div>Last Updated: November 2020</div>

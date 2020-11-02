@@ -66,7 +66,6 @@ class Question extends React.Component{
         <div style={{"textAlign": "left"}}>Question {this.props.QNum+1}/10</div>
         <div className="playerName">Player: {this.props.gameStats.playerName||""}</div>
         <div className="navQuestions" style={{"textAlign": "right"}}>
-          {/* <button>Previous</button> */}
           <button onClick={this.nextQ} disabled={!this.state.submitted}>Next</button>
         </div>
       </div>
