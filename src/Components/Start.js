@@ -33,8 +33,9 @@ class Start extends React.Component{
   render(){
   return(
     <div className="start">
-      <div>Welcome to Trivi-I-Know</div>
-      <div>Score board would go here</div>
+      <h2>Welcome to Trivi-I-Know</h2>
+      <div>The game to improve your trivia skills</div>
+      <div>Please enter a name and press "Start Game" to begin</div>
       <div className="playerInput">
       <label htmlFor="name">Player Name: </label>
       <input name="name" type="text" placeholder="Please enter your name" ref={this.inputVal} onChange={this.toggleButton}/>
