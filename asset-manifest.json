@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Trivi-I-Know/static/css/main.197bcaa4.chunk.css",
-    "main.js": "/Trivi-I-Know/static/js/main.3be9d82c.chunk.js",
-    "main.js.map": "/Trivi-I-Know/static/js/main.3be9d82c.chunk.js.map",
+    "main.css": "/Trivi-I-Know/static/css/main.1bef9fb2.chunk.css",
+    "main.js": "/Trivi-I-Know/static/js/main.a105d9b1.chunk.js",
+    "main.js.map": "/Trivi-I-Know/static/js/main.a105d9b1.chunk.js.map",
     "runtime-main.js": "/Trivi-I-Know/static/js/runtime-main.00813543.js",
     "runtime-main.js.map": "/Trivi-I-Know/static/js/runtime-main.00813543.js.map",
     "static/js/2.501867bb.chunk.js": "/Trivi-I-Know/static/js/2.501867bb.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.4cfc02c3.chunk.js": "/Trivi-I-Know/static/js/3.4cfc02c3.chunk.js",
     "static/js/3.4cfc02c3.chunk.js.map": "/Trivi-I-Know/static/js/3.4cfc02c3.chunk.js.map",
     "index.html": "/Trivi-I-Know/index.html",
-    "static/css/main.197bcaa4.chunk.css.map": "/Trivi-I-Know/static/css/main.197bcaa4.chunk.css.map",
+    "static/css/main.1bef9fb2.chunk.css.map": "/Trivi-I-Know/static/css/main.1bef9fb2.chunk.css.map",
     "static/js/2.501867bb.chunk.js.LICENSE.txt": "/Trivi-I-Know/static/js/2.501867bb.chunk.js.LICENSE.txt",
     "static/media/GitHub_Logo_White.6149aa5c.png": "/Trivi-I-Know/static/media/GitHub_Logo_White.6149aa5c.png"
   },
   "entrypoints": [
     "static/js/runtime-main.00813543.js",
     "static/js/2.501867bb.chunk.js",
-    "static/css/main.197bcaa4.chunk.css",
-    "static/js/main.3be9d82c.chunk.js"
+    "static/css/main.1bef9fb2.chunk.css",
+    "static/js/main.a105d9b1.chunk.js"
   ]
 }
