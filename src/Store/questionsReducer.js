@@ -93,12 +93,6 @@ export const resetQuestions = () => {
   }
 }
 
-/*{
-  queston: q,
-  answers: [in randomized order]
-
-}*/
-
 
 //Reducer
 export default function questionsReducer(state=initialState, action){

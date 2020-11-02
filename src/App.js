@@ -22,7 +22,6 @@ class App extends React.Component {
   else {
     return (
       <div className="App">
-      {/* <h1 id="gameName" className="glow">Trivi-I-Know</h1> */}
       <h1 id="gameName" className="glow">
         <span style={{color: "#c53b50"}}>T</span>
         <span style={{color: "#19a0b4"}}>r</span>

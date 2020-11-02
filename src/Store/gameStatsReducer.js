@@ -1,5 +1,6 @@
 //Game statistics
 import QandA from "../Apprentice_TandemFor400_Data.json"
+
 //Actions
 const ACTIVATE_GAME = "ACTIVATE_GAME";
 const CHANGE_PHASE = "CHANGE_PHASE";
@@ -38,8 +39,6 @@ const resetGame = (name="", phase="start") => {
     phase
   }
 }
-
-
 
 //Thunk Creator
 export const activateGame = (name) => {
