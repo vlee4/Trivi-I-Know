@@ -26,7 +26,7 @@ After saving the `.env` file you may try once again to run `npm start`.
 
 ## Potential future features
 
-- Responsive design for different device browswer sizes
+- Responsive design for different device browser sizes
 - Previous button: to allow user to move back and forth through the questions
 - Landing page
 - Score board: displaying previous players' scores
